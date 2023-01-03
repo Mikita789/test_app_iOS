@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         //MARK: create label
         self.label = UILabel()
         self.label.text = "А какой Паша Техник ты сегодня ?"
-        self.label.font = label.font.withSize(25)
+        self.label.font = label.font.withSize(20)
         self.label.contentMode = .scaleAspectFit
         self.label.textAlignment = .center
         self.label.numberOfLines = 2
@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         self.nextScreen.setTitle("Next Screen", for: .normal)
         self.nextScreen.backgroundColor = .white
         self.nextScreen.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        self.nextScreen.contentHorizontalAlignment = .right
         self.nextScreen.addTarget(self, action: #selector(nextScreenAction), for: .touchUpInside)
         self.nextScreen.contentMode = .scaleAspectFit
         self.view.addSubview(nextScreen)

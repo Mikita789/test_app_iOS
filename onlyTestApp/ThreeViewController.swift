@@ -12,7 +12,9 @@ class ThreeViewController: UIViewController {
     var startIm = UIImage(named: "mars")
     var netwManager = ParseModelNasa()
     var datePicker = UIDatePicker()
-    var selectDate = "2022-10-10"
+    var currentDate = Date()
+    var dateFormater = DateFormatter()
+    var selectDate = ""
     var infoLabel = UILabel()
     var selectDateLabel = UILabel()
     var urlImageTexrView = UITextView()
@@ -22,13 +24,14 @@ class ThreeViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "NASA Photo of the Day"
+        dateFormater.dateFormat = "yyyy-MM-dd"
+        selectDate = dateFormater.string(from: currentDate)
         
         
         //MARK: Create imageView
         self.imageView = UIImageView(image: startIm)
         self.imageView.center.x = self.view.center.x
         self.imageView.contentMode = .scaleAspectFit
-        self.imageView.layer.borderWidth = 1
         self.view.addSubview(imageView)
         self.imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -36,11 +39,11 @@ class ThreeViewController: UIViewController {
         self.imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true
         self.imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height*0.45).isActive = true
         
-        
         netwManager.resultNASAPhoto = {result in
             self.updateImNasa(target: result)
         }
         netwManager.nasaPhoto(date: selectDate)
+        
         //MARK: Create dataPicker
         self.datePicker = UIDatePicker()
         self.datePicker.datePickerMode = .date
@@ -59,7 +62,6 @@ class ThreeViewController: UIViewController {
         self.infoLabel.textAlignment = .justified
         self.infoLabel.contentMode = .scaleAspectFit
         self.infoLabel.minimumScaleFactor = 0.4
-        self.infoLabel.layer.borderWidth = 1
         self.infoLabel.adjustsFontSizeToFitWidth = true
         self.view.addSubview(infoLabel)
         self.infoLabel.translatesAutoresizingMaskIntoConstraints = false

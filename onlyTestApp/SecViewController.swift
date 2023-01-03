@@ -56,7 +56,7 @@ class SecViewController: UIViewController {
         self.nextScreenButton.setTitle("NASA Screen", for: .normal)
         self.nextScreenButton.setTitleColor(.black, for: .normal)
         self.nextScreenButton.backgroundColor = .white
-        self.nextScreenButton.titleLabel?.textAlignment = .left
+        self.nextScreenButton.contentHorizontalAlignment = .right
         self.nextScreenButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         self.nextScreenButton.addTarget(self, action: #selector(nextScreen), for: .touchUpInside)
         self.view.addSubview(nextScreenButton)
