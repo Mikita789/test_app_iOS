@@ -105,7 +105,6 @@ class ViewController: UIViewController {
         self.refrWeatherButton = UIButton(type: .system)
         self.refrWeatherButton.setImage(UIImage(named: "refr"), for: .normal)
         self.refrWeatherButton.contentMode = .scaleAspectFit
-        self.refrWeatherButton.layer.borderWidth = 1
         self.refrWeatherButton.addTarget(self, action: #selector(refrWeatherAction), for: .touchUpInside)
         self.view.addSubview(refrWeatherButton)
         self.refrWeatherButton.isHidden = false

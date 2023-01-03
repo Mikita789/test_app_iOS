@@ -26,7 +26,7 @@ class SecViewController: UIViewController {
         self.imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height*0.135).isActive = true
         self.imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true
-        self.imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(nextScreenButton.bounds.height+50)).isActive = true
+        self.imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.bounds.height*0.1).isActive = true
         
         netwImageHTML.resultIm = {res in
             self.updateImage(data: res)
@@ -44,9 +44,9 @@ class SecViewController: UIViewController {
         self.refrImageButton.addTarget(self, action: #selector(refrButton), for: .touchUpInside)
         self.view.addSubview(refrImageButton)
         self.refrImageButton.translatesAutoresizingMaskIntoConstraints = false
-        self.refrImageButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        self.refrImageButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height*0.1).isActive = true
         self.refrImageButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.03).isActive = true
-        self.refrImageButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        self.refrImageButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: view.bounds.width*0.1).isActive = true
         self.refrImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         
         
@@ -61,8 +61,8 @@ class SecViewController: UIViewController {
         self.nextScreenButton.addTarget(self, action: #selector(nextScreen), for: .touchUpInside)
         self.view.addSubview(nextScreenButton)
         self.nextScreenButton.translatesAutoresizingMaskIntoConstraints = false
-        self.nextScreenButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
-        self.nextScreenButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
+        self.nextScreenButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.bounds.height*0.004).isActive = true
+        self.nextScreenButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -view.bounds.width*0.045).isActive = true
         self.nextScreenButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/25).isActive = true
         self.nextScreenButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.35).isActive = true
     }
